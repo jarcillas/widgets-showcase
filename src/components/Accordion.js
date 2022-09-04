@@ -5,7 +5,6 @@ const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
 
   const onTitleClick = (index) => {
-    console.log('Title clicked! index: ', index);
     setActiveIndex(index);
   };
 
@@ -13,7 +12,7 @@ const Accordion = ({ items }) => {
     const isItemActive = index === activeIndex ? 'active' : '';
 
     return (
-      <React.Fragment key={title}>
+      <React.Fragment key={index}>
         <div
           className={`title ${isItemActive}`}
           onClick={() => onTitleClick(index)}
