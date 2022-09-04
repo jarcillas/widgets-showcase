@@ -3,9 +3,12 @@ import Accordion from './Accordion';
 
 const App = () => {
   const items = [
-    { title: 'What are you?', content: "I don't know." },
-    { title: 'Who are you?', content: 'NANA' },
-    { title: 'What are you talking about?', content: 'stuff' },
+    { title: 'What is the Game of the Year?', content: 'Elden Ring' },
+    { title: 'Who are you?', content: "Nobody you'd know." },
+    {
+      title: 'What are you talking about?',
+      content: 'Mostly programming stuff.',
+    },
   ];
 
   return (
