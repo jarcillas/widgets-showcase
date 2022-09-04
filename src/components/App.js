@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Accordion from './Accordion';
 import AccordionInput from './AccordionInput';
+import Search from './Search';
 
 const App = () => {
   const initialitems = [
@@ -18,23 +19,11 @@ const App = () => {
     setItems([...items, item]);
   };
 
-  // const dummyItem = {
-  //   title: 'I just added an item.',
-  //   content: 'Yeah bro.',
-  // };
-
   return (
     <div>
-      <Accordion items={items} />
-      <AccordionInput addItem={addItem} />
-      {/* <button
-        onClick={(e) => {
-          e.preventDefault();
-          addItem(dummyItem);
-        }}
-      >
-        Add an Item
-      </button> */}
+      {/* <Accordion items={items} />
+      <AccordionInput addItem={addItem} /> */}
+      <Search />
     </div>
   );
 };
