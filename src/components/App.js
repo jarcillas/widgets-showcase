@@ -7,16 +7,15 @@ import Dropdown from './Dropdown';
 const App = () => {
   const initialitems = [
     { title: 'What is the Game of the Year?', content: 'Elden Ring' },
-    { title: 'Who are you?', content: "Nobody you'd know." },
-    {
-      title: 'What are you talking about?',
-      content: 'Mostly programming stuff.',
-    },
+    { title: 'What is the largest continent?', content: 'Asia' },
+    { title: 'Who is the Father of Geometry?', content: 'Euclid' },
   ];
 
   const [items, setItems] = useState(initialitems);
 
   const [showDropdown, setShowDropdown] = useState(true);
+
+  const [activeTab, setActiveTab] = useState(0);
 
   const addItem = (item) => {
     setItems([...items, item]);
@@ -40,20 +39,67 @@ const App = () => {
   const [selected, setSelected] = useState(options[0]);
 
   return (
-    <div>
-      {/* <Accordion items={items} />
-      <AccordionInput addItem={addItem} /> */}
-      {/* <Search /> */}
-      <button onClick={() => setShowDropdown(!showDropdown)}>
-        Toggle Dropdown
-      </button>
-      {showDropdown ? (
-        <Dropdown
-          options={options}
-          selected={selected}
-          onSelectedChange={setSelected}
-        />
-      ) : null}
+    <div className="ui container">
+      <div className="ui header" style={{ marginTop: '10px' }}>
+        Widgets:
+      </div>
+      <div className="ui top attached tabular menu">
+        <div
+          id="tab0"
+          className={`item ${activeTab === 0 ? 'active' : ''}`}
+          onClick={() => setActiveTab(0)}
+        >
+          Accordion
+        </div>
+        <div
+          id="tab1"
+          className={`item ${activeTab === 1 ? 'active' : ''}`}
+          onClick={() => setActiveTab(1)}
+        >
+          Search
+        </div>
+        <div
+          id="tab2"
+          className={`item ${activeTab === 2 ? 'active' : ''}`}
+          onClick={() => setActiveTab(2)}
+        >
+          Dropdown
+        </div>
+      </div>
+      <div
+        id="widget0"
+        className={`ui bottom attached tab segment ${
+          activeTab === 0 ? 'active' : ''
+        }`}
+      >
+        <Accordion items={items} />
+        <AccordionInput addItem={addItem} />
+      </div>
+      <div
+        id="widget1"
+        className={`ui bottom attached tab segment ${
+          activeTab === 1 ? 'active' : ''
+        }`}
+      >
+        <Search />
+      </div>
+      <div
+        id="widget2"
+        className={`ui bottom attached tab segment ${
+          activeTab === 2 ? 'active' : ''
+        }`}
+      >
+        <button onClick={() => setShowDropdown(!showDropdown)}>
+          Toggle Dropdown
+        </button>
+        {showDropdown ? (
+          <Dropdown
+            options={options}
+            selected={selected}
+            onSelectedChange={setSelected}
+          />
+        ) : null}
+      </div>
     </div>
   );
 };
