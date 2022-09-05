@@ -16,6 +16,8 @@ const App = () => {
 
   const [items, setItems] = useState(initialitems);
 
+  const [showDropdown, setShowDropdown] = useState(true);
+
   const addItem = (item) => {
     setItems([...items, item]);
   };
@@ -42,11 +44,16 @@ const App = () => {
       {/* <Accordion items={items} />
       <AccordionInput addItem={addItem} /> */}
       {/* <Search /> */}
-      <Dropdown
-        options={options}
-        selected={selected}
-        onSelectedChange={setSelected}
-      />
+      <button onClick={() => setShowDropdown(!showDropdown)}>
+        Toggle Dropdown
+      </button>
+      {showDropdown ? (
+        <Dropdown
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      ) : null}
     </div>
   );
 };
