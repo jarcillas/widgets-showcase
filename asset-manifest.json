@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/widgets-showcase/static/js/main.d6748741.js",
+    "index.html": "/widgets-showcase/index.html",
+    "main.d6748741.js.map": "/widgets-showcase/static/js/main.d6748741.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.d6748741.js"
+  ]
+}
